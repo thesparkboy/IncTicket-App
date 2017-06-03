@@ -1,0 +1,23 @@
+extends ../../layouts/default
+block content
+	.container
+		.panel.panel-primary
+			.panel-heading Tickets
+			.panel-body: p These are list of tickets available in the system.
+			table.table.table-striped
+				each ticket in data.tickets
+					tr
+						td
+							.col-md-1
+								span.label.label-info.pull-right #{ticket.status}
+							- var url = ticket.url;
+							a(href = url): b #{ticket.title}
+							ul.ticket-meta
+								li: small Status 
+									a(href="",rel="tag") #{ticket.status}
+								li: small Priority 
+									a(href="",rel="tag") #{ticket.priority}
+								li: small Category 
+									a(href="",rel="tag") #{ticket.category}	
+								li: small Last Updated 
+									a(href="",rel="tag") #{ticket._.createdAt.format('Do MMM YYYY')}				

@@ -1,0 +1,16 @@
+extends ../../layouts/default
+block content
+	.container
+		.panel.panel-primary
+			.panel-heading Ticket details - #{data.ticket.title}
+			.panel-body: span.label.label-info.pull-right #{data.ticket.status}
+				p #{data.ticket.description}
+			ul.ticket-meta
+				li: small Status 
+					a(href="",rel="tag") #{data.ticket.status}
+				li: small Priority 
+					a(href="",rel="tag") #{data.ticket.priority}
+				li: small Category 
+					a(href="",rel="tag") #{data.ticket.category}	
+				li: small Last Updated 
+					a(href="",rel="tag") #{data.ticket._.createdAt.format('Do MMM YYYY')}				
